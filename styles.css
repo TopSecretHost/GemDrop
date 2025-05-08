@@ -1,0 +1,174 @@
+/* styles.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('lvl-bgs/bg1.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    max-width: 500px;
+    margin: 10px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    color: #ff6600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+}
+
+.score-board p {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    background-color: #ff6600;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#restart-button:hover {
+    background-color: #ff4500;
+}
+
+#restart-button:active {
+    background-color: #e63e00;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+    background-color: #ffeb3b;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    margin: 20px auto 0;
+}
+
+.gem {
+    width: 100%;
+    padding-top: 100%; /* For responsive squares */
+    position: relative;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.gem::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.gem.blue-diamond-1::after {
+    background-image: url('gems/blue-diamond-1.png');
+}
+
+.gem.pink-diamond-1::after {
+    background-image: url('gems/pink-diamond-1.png');
+}
+
+.gem.green-gem-1::after {
+    background-image: url('gems/green-gem-1.png');
+}
+
+.gem.blue-gem-1::after {
+    background-image: url('gems/blue-gem-1.png');
+}
+
+.gem.purple-gem-1::after {
+    background-image: url('gems/purple-gem-1.png');
+}
+
+.gem.special::after {
+    background-image: url('gems/power-up-blue-diamond-1.png');
+}
+
+.gem.highlight {
+    box-shadow: 0 0 15px 3px white;
+}
+
+.gem.swap {
+    transform: scale(1.1);
+}
+
+.gem.remove {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .score-board p {
+        font-size: 1.2em;
+    }
+
+    #restart-button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+
+    #game-board {
+        max-width: 100%;
+        margin: 10px auto 0;
+    }
+}
